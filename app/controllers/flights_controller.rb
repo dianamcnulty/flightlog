@@ -1,10 +1,10 @@
 class FlightsController < ApplicationController
-  before_action :set_flight, only: [:show, :update, :destroy]
+  before_action :set_flight, only: %i[show update destroy]
 
   # GET /flights
   def index
+    # @flights = current_user.flights.all
     @flights = Flight.all
-
     render json: @flights
   end
 
@@ -15,8 +15,8 @@ class FlightsController < ApplicationController
 
   # POST /flights
   def create
+    # @flight = current_user.flights.build(flight_params)
     @flight = Flight.new(flight_params)
-
     if @flight.save
       render json: @flight, status: :created, location: @flight
     else
@@ -39,13 +39,14 @@ class FlightsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flight
-      @flight = Flight.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def flight_params
-      params.require(:flight).permit(:user_id_id, :type, :date, :time, :distance, :duration, :launch, :lz, :wing, :notes)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_flight
+    @flight = current_user.flights.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def flight_params
+    params.require(:flight).permit(:user_id, :flight_type, :date, :time, :distance, :duration, :launch, :lz, :wing, :notes)
+  end
 end
