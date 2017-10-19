@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20171019144920) do
   create_table "flights", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "flight_type"
-    t.date "date"
-    t.time "time"
+    t.date "date", null: false
+    t.time "time", null: false
     t.float "distance"
     t.float "duration"
     t.string "launch"
