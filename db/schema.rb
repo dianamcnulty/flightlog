@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20171019144920) do
   end
 
   create_table "flights", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "flight_type"
     t.date "date"
     t.time "time"

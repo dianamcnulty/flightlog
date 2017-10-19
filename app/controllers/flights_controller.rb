@@ -1,10 +1,10 @@
-class FlightsController < ApplicationController
+class FlightsController < ProtectedController
   before_action :set_flight, only: %i[show update destroy]
 
   # GET /flights
   def index
-    # @flights = current_user.flights.all
-    @flights = Flight.all
+    @flights = current_user.flights.all
+    # @flights = Flight.all
     render json: @flights
   end
 
@@ -15,8 +15,8 @@ class FlightsController < ApplicationController
 
   # POST /flights
   def create
-    # @flight = current_user.flights.build(flight_params)
-    @flight = Flight.new(flight_params)
+    @flight = current_user.flights.build(flight_params)
+    # @flight = Flight.new(flight_params)
     if @flight.save
       render json: @flight, status: :created, location: @flight
     else
