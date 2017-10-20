@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019144920) do
+ActiveRecord::Schema.define(version: 20171020141729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20171019144920) do
     t.bigint "user_id", null: false
     t.string "flight_type"
     t.date "date", null: false
-    t.time "time", null: false
+    t.string "time", null: false
     t.float "distance"
     t.float "duration"
     t.string "launch"
