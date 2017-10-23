@@ -3,7 +3,7 @@ class FlightsController < ProtectedController
 
   # GET /flights
   def index
-    @flights = current_user.flights.all
+    @flights = current_user.flights.all.order(:date)
     # @flights = Flight.all
     render json: @flights
   end
