@@ -31,7 +31,6 @@ Repositories:
 - Active Record
 
 
-
 ## improvements/issues to be addressed in future iterations
 Potential improvements:
 - filter data using Ruby, so stats presented to the user don't have to be calculated on the front end.
