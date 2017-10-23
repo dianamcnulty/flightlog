@@ -13,6 +13,17 @@ API Github repository:https://github.com/dianamcnulty/flightlogAPI
 heroku repo: https://dashboard.heroku.com/apps/pgflightlog
 Client Github repository: https://github.com/dianamcnulty/flightlogclient
 
+## API Allowed requests
+### flights
+
+| Verb   | URI Pattern    | Controller#Action   |
+|:-------|:---------------|:--------------------|
+| GET    | `/flights`     | `flights#index`     |
+| GET    | `/flights/:id` | `flights#show`      |
+| POST   | `/flights`     | `flights#create`    |
+| PATCH  | `/flights/:id` | `flights#update`    |
+| DELETE | `/flights/:id` | `flights#destroy`   |
+
 ## technologies used
 - Ruby
 - Rails
